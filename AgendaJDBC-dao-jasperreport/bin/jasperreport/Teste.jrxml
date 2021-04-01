@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13c2179f-ea86-4b4e-861f-bc591d9e1513">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[cGVzc29hICwxNDYsMTUsOTFhODUwZDgtYjQ1NC00YzJiLWJjZGItNDIzNTliNmYyNzJmO3RlbGVm
+b25lICwxNSwxNSw5YzUxNzRkMS0xZTIxLTQ5YmMtODdmMi0xYTZjYTAwOTgzZmU7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="340"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="647"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<parameter name="x" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT pessoa.id,
+	pessoa.nome,
+	pessoa.dtcadastro,
+	telefone.numero
+FROM telefone
+	INNER JOIN pessoa ON 
+	 telefone.idpessoa = pessoa.id 
+WHERE 
+	 pessoa.nome = $P{x} 
+ORDER BY telefone.id DESC]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="dtcadastro" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dtcadastro"/>
+		<property name="com.jaspersoft.studio.field.label" value="dtcadastro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa"/>
+	</field>
+	<field name="numero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numero"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="telefone"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="20" width="278" height="30" uuid="d60eb418-9bab-49d3-85db-490b89d25f13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Relatorio teste POB]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="17" width="81" height="57" uuid="2c170581-a324-495a-bd25-27c9e8791f9c"/>
+				<imageExpression><![CDATA["/src/imagens/imagem.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="f5ee9f6d-225b-454c-ae17-bbb86a84f803">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5582ea4-1aea-4699-9ec2-ac52425b6ce3"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="30" uuid="f8f4ce01-33d5-4c46-aec5-355cc0a5bfda">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b58b489-19f5-4401-bdc9-414dc9250e57"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="30" uuid="b36f5d69-8ac6-4f87-a1f7-77a1d7a73fa7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2eff413a-22c6-4ad6-b860-58a646236b80"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[numero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="140" height="30" uuid="d5c40245-4d3f-44d2-a9d0-ec1220c7951c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0280556-8f94-4426-b6a0-2479a14a9f78"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[dtcadastro]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="57" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="100" height="24" uuid="32ccad96-fed9-43d3-be30-afd3c39298a6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b5582ea4-1aea-4699-9ec2-ac52425b6ce3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="20" width="100" height="24" uuid="f6e5744c-a517-432e-a1d0-5b71f4a57bdc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b58b489-19f5-4401-bdc9-414dc9250e57"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="20" width="100" height="24" uuid="90163ffb-95fe-440c-8f00-361420786d77">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2eff413a-22c6-4ad6-b860-58a646236b80"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="20" width="100" height="20" uuid="61348ad9-b8ca-4b8a-ab89-c054eb7c6366">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a0280556-8f94-4426-b6a0-2479a14a9f78"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{dtcadastro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="420" y="12" width="140" height="30" uuid="569504b7-e399-4072-9bde-d79121d96b2e"/>
+				<textFieldExpression><![CDATA["Pagina:"+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="48" splitType="Stretch"/>
+	</summary>
+</jasperReport>

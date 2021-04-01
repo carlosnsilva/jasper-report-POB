@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="DepartamentoDAO.java|EmpregadoDAO_db4o.java|EmpregadoDAO.java|Gerente.java|Principal_db4o.java|Principal.java|Principal2.java|Principal3.java|Projeto.java|ProjetoDAO.java|Vendedor.java|org/|Unidirecional/" kind="src" path="src"/>
+	<classpathentry kind="lib" path="postgresql-42.2.19.jar"/>
+	<classpathentry kind="lib" path="mysql-connector-java-8.0.23.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="net.sf.jasperreports.JR_CONTAINER"/>
+	<classpathentry kind="con" path="net.sf.jasperreports.JR_DEPENDENCIES_CONTAINER"/>
+	<classpathentry kind="con" path="com.jaspersoft.server.JRS_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
