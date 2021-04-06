@@ -18,6 +18,8 @@ public class Aluno extends Pessoa {
 	public String toString() {
 		return super.toString()+ "  nota=" + nota ;
 	}
+	
+	
 
 
 

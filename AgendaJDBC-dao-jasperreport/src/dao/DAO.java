@@ -29,7 +29,7 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			try {
 				con.close();
 			}catch(Exception e) {
-				System.out.println("problema no fechamaneto da conexão:"+e.getMessage());
+				System.out.println("problema no fechamaneto da conexï¿½o:"+e.getMessage());
 			}
 		}
 	}
@@ -64,7 +64,7 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			 */
 			//verificar se database 'agenda' existe
 			url = "jdbc:postgresql://localhost:5432/";
-			con = DriverManager.getConnection(url,"carlos","carlos");	
+			con = DriverManager.getConnection(url,"postgres","0000");	
 			st = con.prepareStatement("select * from pg_database where datname='agenda'");
 			rs = st.executeQuery();
 			if (!rs.next()) {
@@ -89,8 +89,8 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			/*
 			 * CONECTAR DATABASE agenda
 			 */
-			url= "jdbc:postgresql://localhost:5432/IFPB";
-			con = DriverManager.getConnection(url,"carlos","carlos");						
+			url= "jdbc:postgresql://localhost:5432/ifpb";
+			con = DriverManager.getConnection(url,"postgres","0000");						
 			con.setAutoCommit(false);
 			//verificar sPreparedStatement ste tabela ja existe no banco, senao cria
 			st = con.prepareStatement("select * from pg_tables where tableowner = 'postgres' and tablename= 'pessoa'");

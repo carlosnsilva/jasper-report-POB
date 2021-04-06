@@ -75,7 +75,7 @@ public class Fachada {
 			throw new Exception("cadastrar aluno - pessoa ja cadastrado:" + nome);
 		}
 
-		Aluno a = new Aluno(nome,nota);
+		Aluno a = new Aluno(nome, nota);
 		daopessoa.create(a);	
 		DAO.commit();
 		return a;
@@ -209,24 +209,24 @@ public class Fachada {
 	 * 
 	 * RELATORIO JASPER REPORT 
 	 * 
-	 * compila relatório e abre a janela de visualização
+	 * compila relatï¿½rio e abre a janela de visualizaï¿½ï¿½o
 	 * 
 	 * **********************************************************/
 	public static void gerarRelatorioJasper(String arqjrxml) throws Exception {
 		try {
 			Connection con = DAO.getConnection();  //conexao JDBC
 			if (con==null) 
-				throw new Exception("conexão inexistente");
+				throw new Exception("conexï¿½o inexistente");
 			
 			InputStream istream = Fachada.class.getClassLoader().getResourceAsStream(arqjrxml);
 			JasperReport report = JasperCompileManager.compileReport(istream);
 			
 			HashMap<String,Object>  parametros = new HashMap<>();   //obrigatorio mesmo vazio
 			JasperPrint print = JasperFillManager.fillReport(report, parametros, con);
-			JasperViewer.viewReport(print, false);  //false não fecha a janela principal da aplicação
+			JasperViewer.viewReport(print, false);  //false nï¿½o fecha a janela principal da aplicaï¿½ï¿½o
 		}
 		catch(JRException e) {
-			throw new Exception ("erro de relatório:"+e.getMessage());
+			throw new Exception ("erro de relatï¿½rio:"+e.getMessage());
 		}
 	
 	}
@@ -236,7 +236,7 @@ public class Fachada {
 		try {
 			Connection con = DAO.getConnection(); 	//conexao JDBC
 			if (con==null) 
-				throw new Exception("conexão inexistente");
+				throw new Exception("conexï¿½o inexistente");
 			
 			InputStream istream = Fachada.class.getClassLoader().getResourceAsStream(arqjrxml);
 			JasperReport report = JasperCompileManager.compileReport(istream);
@@ -245,10 +245,10 @@ public class Fachada {
 			parametros.put("pnome", nom);
 			
 			JasperPrint print = JasperFillManager.fillReport(report, parametros, con);
-			JasperViewer.viewReport(print, false);  //false não fecha a janela principal da aplicação
+			JasperViewer.viewReport(print, false);  //false nï¿½o fecha a janela principal da aplicaï¿½ï¿½o
 		}
 		catch(JRException e) {
-			throw new Exception ("erro de relatório:"+e.getMessage());
+			throw new Exception ("erro de relatï¿½rio:"+e.getMessage());
 		}
 	
 	}
