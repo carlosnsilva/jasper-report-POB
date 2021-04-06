@@ -64,7 +64,8 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			 */
 			//verificar se database 'agenda' existe
 			url = "jdbc:postgresql://localhost:5432/";
-			con = DriverManager.getConnection(url,"postgres","0000");	
+			//insira as credenciais do postgresql da sua máquina na linha abaixo
+			con = DriverManager.getConnection(url,"USERNAME","PASSWORD");	
 			st = con.prepareStatement("select * from pg_database where datname='agenda'");
 			rs = st.executeQuery();
 			if (!rs.next()) {
@@ -89,8 +90,10 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			/*
 			 * CONECTAR DATABASE agenda
 			 */
+			//teste com o banco ifpb para geração do report alunos.jrxml
 			url= "jdbc:postgresql://localhost:5432/ifpb";
-			con = DriverManager.getConnection(url,"postgres","0000");						
+			//insira as credenciais do postgresql da sua máquina na linha abaixo
+			con = DriverManager.getConnection(url,"USERNAME","PASSWORD");						
 			con.setAutoCommit(false);
 			//verificar sPreparedStatement ste tabela ja existe no banco, senao cria
 			st = con.prepareStatement("select * from pg_tables where tableowner = 'postgres' and tablename= 'pessoa'");
@@ -110,7 +113,7 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			e.printStackTrace();
 		}
 	}
-
+	/*
 	public static void abrirBancoMysql()  	{
 		try {
 			String url;
@@ -146,6 +149,7 @@ public abstract class DAO<T> implements DAOInterface<T>  {
 			e.printStackTrace();
 		}
 	}
+	*/
 
 
 	public static Connection getConnection() throws Exception {
